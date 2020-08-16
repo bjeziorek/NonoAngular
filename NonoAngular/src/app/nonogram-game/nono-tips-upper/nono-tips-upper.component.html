@@ -1,0 +1,11 @@
+
+<div class="mainContainer">
+   
+    <div class="mainBoard">
+        <div *ngFor="let row of tipsCollonBase" class="flex boardRow">
+            <div *ngFor="let i of tipsRowBase" class="field" id="field{{row}}{{i}}">
+                {{row}}{{i}}
+            </div>
+        </div>
+    </div>
+</div>

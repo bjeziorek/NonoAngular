@@ -1,0 +1,18 @@
+.mainContainer{
+    background-color: lightblue;
+}
+.mainBoard{
+    border: 2px solid black;
+    width: 270px;
+    height: 270px;
+}
+.field {
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(137, 183, 209);
+  }
+  .flex {
+    display: flex;
+    flex-wrap: nowrap;
+  }
