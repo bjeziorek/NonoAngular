@@ -1,0 +1,14 @@
+.btn{
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+}
+.toolbar{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.active{
+    background-color: lightgreen;
+}

@@ -1,3 +1,4 @@
+import { ToolbarComponent } from './nonogram-game/toolbar/toolbar.component';
 import { NonoGameComponent } from './nonogram-game/nono-game/nono-game.component';
 import { NonoTipsUpperComponent } from './nonogram-game/nono-tips-upper/nono-tips-upper.component';
 import { NonoTipsLeftComponent } from './nonogram-game/nono-tips-left/nono-tips-left.component';
@@ -15,8 +16,8 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
-NonoGameComponent,
-
+    NonoGameComponent,
+    ToolbarComponent,
     NonoBoardComponent,
     NonoTipsLeftComponent,
     NonoTipsUpperComponent

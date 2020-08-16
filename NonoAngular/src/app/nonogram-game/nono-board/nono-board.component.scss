@@ -16,3 +16,20 @@
     display: flex;
     flex-wrap: nowrap;
   }
+  .goodClick{
+    background-color: black;
+  }
+  .badClick{
+    background-color: red;
+  }
+
+  .no{
+    cursor: url(/assets/noCursor.cur),alias;
+}
+.yes{
+    cursor: url(/assets/yesCursor.cur),copy;
+}
+.try{
+    cursor: url(/assets/tryCursor.cur),help;
+}
+

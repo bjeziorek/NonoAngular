@@ -1,13 +1,13 @@
 <div class="nonoGameEl">
     <div class="empty"></div>
-    <app-nono-tips-upper></app-nono-tips-upper>
+    <app-nono-tips-upper [gameArray]="gameArrayCopy"></app-nono-tips-upper>
 </div>
 <div class="nonoGameEl">
 
 
-    <app-nono-tips-left></app-nono-tips-left>
+    <app-nono-tips-left [gameArray]="gameArrayCopy"></app-nono-tips-left>
 
-    <app-nono-board></app-nono-board>
-
+    <app-nono-board [inputMode]="parentCaughtMode" (outputGameArray)="catchGameArray($event)"></app-nono-board>
 
 </div>
+<app-toolbar (mode)="onModeChange($event)"></app-toolbar>

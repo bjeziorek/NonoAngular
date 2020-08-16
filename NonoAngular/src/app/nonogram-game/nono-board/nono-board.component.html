@@ -1,9 +1,9 @@
 <div class="mainContainer">
-    
-    <div class="mainBoard">
+
+    <div class="mainBoard {{inputMode}}">
         <div *ngFor="let row of boardBase" class="flex boardRow">
-            <div *ngFor="let field of boardBase" class="field" id="field{{row}}{{field}}">
-                
+            <div *ngFor="let field of boardBase" class="field" id="field{{row}}{{field}}" (click)="clickField($event)">
+                {{gameArray[row][field]}}
             </div>
         </div>
     </div>

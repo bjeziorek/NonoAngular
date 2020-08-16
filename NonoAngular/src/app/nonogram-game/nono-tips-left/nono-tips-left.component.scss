@@ -1,18 +1,23 @@
-.mainContainer{
-    background-color: lightblue;
-}
+
 .mainBoard{
-    border: 2px solid black;
+    margin-top: 3px;
     width: 135px;
     height: 270px;
 }
 .field {
-    border: 1px solid black;
+  
     width: 25px;
-    height: 25px;
-    background-color: rgb(137, 183, 209);
+    height: 27px;
+   
   }
   .flex {
     display: flex;
     flex-wrap: nowrap;
+  }
+  .leftTip{
+
+    width: 25px;
+    height: 27px;
+    text-align: right;
+      color: #000;
   }
