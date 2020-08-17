@@ -29,11 +29,29 @@ export class NonoTipsLeftComponent implements OnInit {
   constructor(private readonly nonoService: NonoService) {
 
   }
-
-  ngOnInit(): void {
+  start() {
+    this.leftTips = [
+      ['', '', '', '', '', ''], // jest po 6, bo mam gdzies buga i nie zaczyna od 0 tylko od 1, ale potem wszystko przesuwam i dziala
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', ''],
+      ['', '', '', '', '', '']
+    ];
     this.gameArray = this.nonoService.gameArray;
     this.generateTips();
-   
+
+  }
+  ngOnInit(): void {
+    this.start();
+    this.nonoService.newBoardReady.subscribe(data => {
+      console.log('odebrano sygnal new game w tips left');
+      this.start();
+    });
   }
 
   generateTips(): void {
@@ -76,29 +94,29 @@ export class NonoTipsLeftComponent implements OnInit {
       // fill tips right
       for (let i = 0; i < 10; i++) {
         let a = this.leftTips[i];
-        console.log('a',a);
+        //   console.log('a',a);
         this.leftTips[i] = [];
         for (let j = 0; j < a.length; j++) {
           if (a[j] !== '') {
             this.leftTips[i].push(a[j]);
           }
-      //    this.leftTips[i].reverse();
-          
+          //    this.leftTips[i].reverse();
+
           //    document.getElementById('r' + i + Number(j + 1)).innerText = this.leftTips[i][j];
         }
 
-        console.log('lT',this.leftTips[i]);
+        //  console.log('lT',this.leftTips[i]);
       }
 
     }
 
-    for(let i=0;i<this.leftTips.length;i++){
-      const x = 5-this.leftTips[i].length;
-      for(let j=0;j<x;j++){
+    for (let i = 0; i < this.leftTips.length; i++) {
+      const x = 5 - this.leftTips[i].length;
+      for (let j = 0; j < x; j++) {
         this.leftTips[i].push('');
       }
       this.leftTips[i].reverse();
-  }
+    }
 
   }//generatetips
 }

@@ -14,4 +14,13 @@ app-nono-tips-left{
 app-nono-board{
     display: flex;
 }
+.no{
+    cursor: url(/assets/noCursor.cur),alias;
+}
+.yes{
+    cursor: url(/assets/yesCursor.cur),copy;
+}
+.try{
+    cursor: url(/assets/tryCursor.cur),help;
+}
 

@@ -1,6 +1,8 @@
 <p>{{infoText}}</p>
 <div class="toolbar">
-<div class="btn" id="yesMarkerLabel" (click)="yesNoMarkerLabelBtn('yes')">v</div>
-<div class="btn" id="noMarkerLabel" (click)="yesNoMarkerLabelBtn('no')">x</div>
-<div class="btn" id="tryMarkerLabel" (click)="yesNoMarkerLabelBtn('try')">?</div>
+    <div class="btn {{innerModeYes}}" id="yesMarkerLabel" (click)="yesNoMarkerLabelBtn('yes')">v</div>
+    <div class="btn {{innerModeNo}}" id="noMarkerLabel" (click)="yesNoMarkerLabelBtn('no')">x</div>
+    <div class="btn {{innerModeTry}}" id="tryMarkerLabel" (click)="yesNoMarkerLabelBtn('try')">?</div>
+    <div class="lives"> ilość żyć: {{inputLives}} {{endGameInfo}}</div>
+    <button (click)="newGame()">Nowa Gra</button>
 </div>

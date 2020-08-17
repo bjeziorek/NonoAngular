@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { InitValues } from './../init-values';
+import { NonoService } from './../nono.service';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,43 +9,62 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   @Output() mode = new EventEmitter();
+  @Output() newGameSignal = new EventEmitter();
+  @Input() inputLives = new InitValues().getLives();
+  endGameInfo = '';
+
+
   innerMode = 'no';
-  innerModeYes = false;
-  innerModeNo = true;
-  innerModeTry = false;
+  innerModeYes = 'inactive';
+  innerModeNo = 'active';
+  innerModeTry = 'inactive';
   infoText = 'tryb zaznaczania pól podejrzanych o puste';
-  constructor() { }
+  constructor(private readonly nonoService: NonoService) { }
+
+
+
+
+  newGame(): void {
+    //this.newGameSignal.emit();
+    this.nonoService.newGameSignal.next(true);
+  }
 
   ngOnInit(): void {
+    this.nonoService.endGameSignal.subscribe(data => {
+      this.endGameInfo = 'koniec gry';
+    });
+    this.nonoService.newBoardReady.subscribe(data => {
+      this.endGameInfo = '';
+    });
   }
   yesNoMarkerLabelBtn(mode: string): void {
     switch (mode) {
       case 'yes':
         this.infoText = 'tryb zaznaczania pól właściwych';
-        this.innerModeYes = true;
-        this.innerModeNo = false;
-        this.innerModeTry = false;
+        this.innerModeYes = 'active';
+        this.innerModeNo = 'inactive';
+        this.innerModeTry = 'inactive';
         break;
       case 'no':
         this.infoText = 'tryb zaznaczania pól podejrzanych o puste';
-        this.innerModeYes = false;
-        this.innerModeNo = true;
-        this.innerModeTry = false;
+        this.innerModeYes = 'inactive';
+        this.innerModeNo = 'active';
+        this.innerModeTry = 'inactive';
         break;
       case 'try':
         this.infoText = 'tryb zaznaczania pól podejrzanych o właściwe';
-        this.innerModeYes = false;
-        this.innerModeNo = false;
-        this.innerModeTry = true;
+        this.innerModeYes = 'inactive';
+        this.innerModeNo = 'inactive';
+        this.innerModeTry = 'active';
         break;
       default:
         this.infoText = 'jakiś błąd switcha... O_o';
         break;
-    }//switch
+    }// switch
     this.innerMode = mode;
-    //wyslij gdzies mode!!!!!!!!!!!!!!!, zeby pobieral je od razu click/zmienianie kursora
+    // wyslij gdzies mode!!!!!!!!!!!!!!!, zeby pobieral je od razu click/zmienianie kursora
     this.mode.emit(mode);
 
-  }//yesNo...
+  }// yesNo...
 
-}//toolbar component class
+}// toolbar component class

@@ -10,5 +10,11 @@
     flex-wrap: nowrap;
 }
 .active{
-    background-color: lightgreen;
+    background-color: rgb(104, 155, 104);
+}
+.inactive{
+    background-color: rgb(118, 111, 175);
+}
+.lives{
+    margin: 3px;
 }
