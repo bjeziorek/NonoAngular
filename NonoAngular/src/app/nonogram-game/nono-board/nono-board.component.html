@@ -3,7 +3,7 @@
     <div class="mainBoard">
         <div *ngFor="let row of boardBase" class="flex boardRow">
             <div *ngFor="let field of boardBase" class="field" id="field{{row}}{{field}}" (click)="clickField($event)">
-              {{gameArray[row][field]}}
+             
             </div>
         </div>
     </div>

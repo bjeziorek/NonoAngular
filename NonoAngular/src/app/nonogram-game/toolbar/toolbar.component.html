@@ -4,5 +4,5 @@
     <div class="btn {{innerModeNo}}" id="noMarkerLabel" (click)="yesNoMarkerLabelBtn('no')">x</div>
     <div class="btn {{innerModeTry}}" id="tryMarkerLabel" (click)="yesNoMarkerLabelBtn('try')">?</div>
     <div class="lives"> ilość żyć: {{inputLives}} {{endGameInfo}}</div>
-    <button (click)="newGame()">Nowa Gra</button>
+    <button mat-button color="accent" (click)="newGame()">Nowa Gra</button>
 </div>
