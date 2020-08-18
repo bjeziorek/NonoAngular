@@ -1,10 +1,10 @@
 export class InitValues {
-    initialLivesValue: number;
+    static initialLivesValue: number;
 
     constructor() {
-        this.initialLivesValue = 8;
+        InitValues.initialLivesValue = 8;
     }
     getLives(): number {
-        return this.initialLivesValue;
+        return InitValues.initialLivesValue;
     }
 }
